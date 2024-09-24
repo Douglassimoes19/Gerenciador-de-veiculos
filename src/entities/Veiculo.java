@@ -9,6 +9,7 @@ public class Veiculo {
     private int ano;
     private int velocidade = 0;
     private int velocidadeMaxima = 200;
+    private int velocidadeMaximaAtingida;
     private final int tamanhoBarra = 20;
     private int nivelAtualBarra;
     private Motorista motorista;
@@ -55,6 +56,10 @@ public class Veiculo {
     public int getVelocidadeMaxima() {
         return velocidadeMaxima;
     }
+    
+    public int getVelocidadeMaximaAtingida() {
+        return velocidadeMaxima;
+    }
 
     public Motorista getMotorista() {
         return motorista;
@@ -75,6 +80,7 @@ public class Veiculo {
     public void acelerar() throws InterruptedException {
     	
     		System.out.print("[                    ] 0 km/h");
+    		TimeUnit.MILLISECONDS.sleep(1000);
     		int incremento = velocidadeMaxima / tamanhoBarra;
     	
     		for (int i = 1; i <= tamanhoBarra; i++) {
@@ -91,7 +97,8 @@ public class Veiculo {
                     	this.nivelAtualBarra = i;
                     	continue;
                     }else if(decisao.equals("N")){
-                    	System.out.println("Parabéns, escolheu viver!");
+                    	System.out.println("Parabéns, pensou direito!");
+                    	this.velocidadeMaximaAtingida = velocidade - 10;
                     	frear();
                     	return;
                     }else {
@@ -132,7 +139,7 @@ public class Veiculo {
     public void exibirInformacoes() {
         System.out.println("Modelo: " + modelo);
         System.out.println("Ano: " + ano);
-        System.out.println("Velocidade atual: " + velocidade + " km/h");
+        System.out.println("Velocidade maxima atingida: " + this.velocidadeMaximaAtingida + " km/h");
         if (motorista != null) {
             System.out.println("Motorista: " + motorista.getNome());
         } else {

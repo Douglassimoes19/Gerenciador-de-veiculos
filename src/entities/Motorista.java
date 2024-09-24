@@ -15,9 +15,6 @@ public class Motorista {
 
 
 	    public Motorista(String nome, int idade, String licenca) {
-	        if (idade < 18) {
-	            throw new IllegalArgumentException("O motorista deve ter mais de 18 anos.");
-	        }
 	        this.nome = nome;
 	        this.idade = idade;
 	        this.licenca = licenca;
