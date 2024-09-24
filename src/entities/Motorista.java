@@ -37,6 +37,9 @@ public class Motorista {
 	    }
 
 	    public void setIdade(int idade) {
+	    	if (idade < 18) {
+	            throw new IllegalArgumentException("O motorista deve ter mais de 18 anos.");
+	        }
 	        this.idade = idade;
 	    }
 
@@ -46,6 +49,15 @@ public class Motorista {
 
 	    public void setLicenca(String licenca) {
 	        this.licenca = licenca;
+	    }
+	    
+	    @Override
+	    public String toString() {
+	    	StringBuilder sb = new StringBuilder();
+	        sb.append("Nome: ").append(this.nome).append("\n");
+	        sb.append("Idade: ").append(this.idade).append("\n");
+	        sb.append("Licença: ").append(this.licenca);
+	        return sb.toString();
 	    }
 
 }
